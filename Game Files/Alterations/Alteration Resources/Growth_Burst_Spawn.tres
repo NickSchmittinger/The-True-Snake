@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="growth_burst_spawn" load_steps=2 format=3 uid="uid://n18pkditcven"]
+
+[ext_resource type="Script" path="res://Game Files/Alterations/Alteration Scripts/Spawn Alterations/alteration_growth_spawn.gd" id="1_ma83k"]
+
+[resource]
+script = ExtResource("1_ma83k")
+growth_burst_path = "res://Game Files/Alterations/Alteration Needed Nodes/GrowthBurst/growth_burst.tscn"
+growth_amount = 3
+alteration_name = "Growth Burst"
+alteration_duration = 20.0
+stop = false

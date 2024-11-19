@@ -1,0 +1,40 @@
+[gd_scene load_steps=10 format=3 uid="uid://dwqt5eky8gx5u"]
+
+[ext_resource type="PackedScene" uid="uid://c5rcwdrw1sytf" path="res://gui.tscn" id="1_dih22"]
+[ext_resource type="Script" path="res://Game Files/world.gd" id="2_yywdg"]
+[ext_resource type="PackedScene" uid="uid://dmb3cibktyuq3" path="res://Game Files/Alterations/game_alteration.tscn" id="4_4km7g"]
+[ext_resource type="Script" path="res://Game Files/Alterations/game_alteration.gd" id="5_qey6r"]
+[ext_resource type="Script" path="res://Game Files/Alterations/Alteration Scripts/Base Alterations/alteration_base.gd" id="6_7kot3"]
+[ext_resource type="Resource" uid="uid://b13mf13lnk25l" path="res://Game Files/Alterations/Alteration Resources/Speed_Zone_Spawn.tres" id="8_kwp0v"]
+[ext_resource type="Resource" uid="uid://c0jjm0est64g2" path="res://Game Files/Alterations/Alteration Resources/Food_Teleport.tres" id="8_wn7rw"]
+[ext_resource type="Resource" uid="uid://n18pkditcven" path="res://Game Files/Alterations/Alteration Resources/Growth_Burst_Spawn.tres" id="9_ty3or"]
+[ext_resource type="TileSet" uid="uid://uskc0d1eexul" path="res://Art Files/Visuals/World/Tilesets/World Tiles.tres" id="9_wcg8g"]
+
+[node name="Game" type="Node"]
+
+[node name="GUI" parent="." instance=ExtResource("1_dih22")]
+metadata/_edit_lock_ = true
+
+[node name="World" type="Node2D" parent="."]
+script = ExtResource("2_yywdg")
+metadata/_edit_lock_ = true
+
+[node name="GameAlteration" parent="." node_paths=PackedStringArray("world_node", "gui_node") instance=ExtResource("4_4km7g")]
+script = ExtResource("5_qey6r")
+world_node = NodePath("../World")
+gui_node = NodePath("../GUI")
+alterations = Array[ExtResource("6_7kot3")]([ExtResource("8_kwp0v"), ExtResource("8_wn7rw"), ExtResource("9_ty3or")])
+
+[node name="RespawnTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Background Tilemap" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Grass" type="TileMapLayer" parent="Background Tilemap"]
+tile_set = ExtResource("9_wcg8g")
+
+[node name="Water" type="TileMapLayer" parent="Background Tilemap"]
+
+[connection signal="timeout" from="RespawnTimer" to="World" method="_on_respawn_timer_timeout"]

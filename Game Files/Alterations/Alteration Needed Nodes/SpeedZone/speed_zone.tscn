@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv6gj5x2muki7"]
+
+[ext_resource type="Script" path="res://Game Files/Alterations/Alteration Needed Nodes/SpeedZone/speed_zone.gd" id="1_8ijou"]
+[ext_resource type="Texture2D" uid="uid://cb1dp3sanwa08" path="res://Art Files/Visuals/SpeedZone.png" id="2_1j2ph"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v2vj4"]
+size = Vector2(30, 30)
+
+[node name="SpeedZone" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_8ijou")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("2_1j2ph")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_v2vj4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

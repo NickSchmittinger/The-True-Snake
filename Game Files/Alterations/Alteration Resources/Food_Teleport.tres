@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="food_teleport" load_steps=2 format=3 uid="uid://c0jjm0est64g2"]
+
+[ext_resource type="Script" path="res://Game Files/Alterations/Alteration Scripts/Teleport Alterations/alteration_food_teleport.gd" id="1_osxby"]
+
+[resource]
+script = ExtResource("1_osxby")
+countdown_time_min = 1.5
+countdown_time_max = 2.5
+alteration_name = "Teleporting Food"
+alteration_duration = 5.0
+stop = false

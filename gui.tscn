@@ -1,0 +1,241 @@
+[gd_scene load_steps=9 format=3 uid="uid://c5rcwdrw1sytf"]
+
+[ext_resource type="Script" path="res://gui.gd" id="1_bjyah"]
+[ext_resource type="Texture2D" uid="uid://b4w8qmlgxxb3n" path="res://Art Files/Visuals/Spaced-Out.jpg" id="2_tnvpy"]
+
+[sub_resource type="Animation" id="Animation_oxfia"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qulxe"]
+resource_name = "large_to_small_text"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(5, 5), Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.466667, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.117647), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nyfn8"]
+_data = {
+"RESET": SubResource("Animation_oxfia"),
+"large_to_small_text": SubResource("Animation_qulxe")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_387rk"]
+bg_color = Color(0, 0, 0, 0.235294)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_blend = true
+shadow_color = Color(0, 0, 0, 0.360784)
+shadow_size = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_obqrw"]
+bg_color = Color(0, 0, 0, 0.411765)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_blend = true
+shadow_color = Color(0, 0.662745, 0.215686, 0.792157)
+shadow_size = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3pypo"]
+bg_color = Color(0.151276, 0.151276, 0.151276, 1)
+border_width_left = 2
+border_width_top = 4
+border_width_right = 2
+border_width_bottom = 4
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+shadow_color = Color(0.169245, 0.169245, 0.169245, 0.6)
+shadow_size = 2
+
+[node name="GUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bjyah")
+gui_audio_paths = {
+"OhNo": "res://Art Files/Audio/OhNo_Test.mp3"
+}
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tnvpy")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="IntroOutroLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="CountdownLabel" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.460938
+anchor_top = 0.381944
+anchor_right = 0.539063
+anchor_bottom = 0.520833
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(50, 50)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 75
+bbcode_enabled = true
+text = "[center]3[/center]"
+scroll_active = false
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="CountdownTimer" type="Timer" parent="CountdownLabel"]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CountdownLabel"]
+libraries = {
+"": SubResource("AnimationLibrary_nyfn8")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="GameTimePanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.015625
+anchor_top = 0.0277778
+anchor_right = 0.171875
+anchor_bottom = 0.111111
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_387rk")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="GameTimeLabel" type="Label" parent="GameTimePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(100, 30)
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScorePanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.015625
+anchor_top = 0.138889
+anchor_right = 0.171875
+anchor_bottom = 0.222222
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_obqrw")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="ScoreLabel" type="Label" parent="ScorePanel"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(100, 30)
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActiveAlterationPanel" type="Panel" parent="."]
+layout_mode = 0
+anchor_left = 0.265625
+anchor_top = 0.0277778
+anchor_right = 0.734375
+anchor_bottom = 0.125
+pivot_offset = Vector2(300, 35)
+theme_override_styles/panel = SubResource("StyleBoxFlat_3pypo")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="ActiveAlterationLabel" type="Label" parent="ActiveAlterationPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(300, 35)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+metadata/_edit_use_anchors_ = true
+
+[connection signal="timeout" from="CountdownLabel/CountdownTimer" to="." method="_on_countdown_timer_timeout"]

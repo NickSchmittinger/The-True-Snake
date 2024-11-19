@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="speed_zone_spawn" load_steps=2 format=3 uid="uid://b13mf13lnk25l"]
+
+[ext_resource type="Script" path="res://Game Files/Alterations/Alteration Scripts/Spawn Alterations/alteration_speed_spawn.gd" id="1_nqhy5"]
+
+[resource]
+script = ExtResource("1_nqhy5")
+speed_zone_path = "res://Game Files/Alterations/Alteration Needed Nodes/SpeedZone/speed_zone.tscn"
+max_speed_zones = 3
+boost_amount = 666.0
+alteration_name = "Spawn Speed Zones"
+alteration_duration = 10.0
+stop = false

@@ -1,0 +1,46 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://c6ea2nqqbvyyc"]
+
+[ext_resource type="Texture2D" uid="uid://uownurlj0d1m" path="res://Art Files/Visuals/Food/24/Food_Face_Blush_24.png" id="1_g4fix"]
+[ext_resource type="Texture2D" uid="uid://dipqlmenc8865" path="res://Art Files/Visuals/Food/24/Food_Face_Cry_24.png" id="2_oiiiu"]
+[ext_resource type="Texture2D" uid="uid://b5xijjuw27phc" path="res://Art Files/Visuals/Food/24/Food_Face_Laugh_24.png" id="3_olvrq"]
+[ext_resource type="Texture2D" uid="uid://cx2i6uyum0tvu" path="res://Art Files/Visuals/Food/24/Food_Face_Scared_24.png" id="4_4ac1j"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_g4fix")
+}],
+"loop": true,
+"name": &"Blush",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_oiiiu")
+}],
+"loop": true,
+"name": &"Cry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_olvrq")
+}],
+"loop": true,
+"name": &"Laugh",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_4ac1j")
+}],
+"loop": true,
+"name": &"Scared",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
