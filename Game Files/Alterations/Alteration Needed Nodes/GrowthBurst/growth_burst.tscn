@@ -1,22 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://cjlvy5k0at8an"]
 
 [ext_resource type="Script" path="res://Game Files/Alterations/Alteration Needed Nodes/GrowthBurst/growth_burst.gd" id="1_6cold"]
+[ext_resource type="SpriteFrames" uid="uid://bp27gx33d6l54" path="res://Art Files/Visuals/Alterations/Growth.tres" id="2_nqdqr"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kpqvu"]
-size = Vector2(30, 30)
+[sub_resource type="CircleShape2D" id="CircleShape2D_sthix"]
+radius = 15.0333
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_instm"]
-size = Vector2(30, 30)
-
-[node name="GrowthBurst" type="Area2D"]
-collision_layer = 0
-collision_mask = 2
+[node name="GrowthBurst" type="CharacterBody2D" groups=["Growth"]]
+collision_mask = 3
+motion_mode = 1
 script = ExtResource("1_6cold")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("PlaceholderTexture2D_kpqvu")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_nqdqr")
+animation = &"Star 1"
+autoplay = "Star 1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_instm")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+shape = SubResource("CircleShape2D_sthix")

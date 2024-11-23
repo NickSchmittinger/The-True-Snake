@@ -1,10 +1,9 @@
 extends CharacterBody2D
-#No movements needed (for now)
 
 
 @onready var parent : CharacterBody2D
 @export var speed = 180
-@export var speed_offset = 12
+@export var speed_offset = 25
 @export var direction : Vector2
 
 func setup(parent_node):
@@ -26,7 +25,7 @@ func _physics_process(_delta):
 	if parent:
 		direction = parent.position - position
 		var distance = direction.length()
-		speed = parent.speed - speed_offset
+		speed = parent.speed - (parent.speed / speed_offset)
 		if distance <= Globals.extension_stop_threshold:
 			velocity = Vector2.ZERO
 		else:

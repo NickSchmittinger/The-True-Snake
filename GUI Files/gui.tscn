@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c5rcwdrw1sytf"]
 
-[ext_resource type="Script" path="res://gui.gd" id="1_bjyah"]
-[ext_resource type="Texture2D" uid="uid://b4w8qmlgxxb3n" path="res://Art Files/Visuals/Spaced-Out.jpg" id="2_tnvpy"]
+[ext_resource type="Script" path="res://GUI Files/gui.gd" id="1_bjyah"]
+[ext_resource type="Texture2D" uid="uid://d1fxdo27j4suw" path="res://Art Files/Visuals/World/blue-with-stars.png" id="2_hog7i"]
 
 [sub_resource type="Animation" id="Animation_oxfia"]
 length = 0.001
@@ -108,6 +108,7 @@ script = ExtResource("1_bjyah")
 gui_audio_paths = {
 "OhNo": "res://Art Files/Audio/OhNo_Test.mp3"
 }
+metadata/_edit_lock_ = true
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -116,7 +117,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_tnvpy")
+texture = ExtResource("2_hog7i")
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 

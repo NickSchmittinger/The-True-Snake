@@ -5,6 +5,8 @@ class_name growth_burst_spawn
 
 @export var growth_amount : int
 
+@export var motion_speed : float
+
 func child_execute():
 	create_growth_burst_object()
 	pass
@@ -20,4 +22,5 @@ func place_growth_burst_object(object):
 	object.position = Vector2(randf_range(0,Globals.screen_size.x), randf_range(0, Globals.screen_size.y))
 	object.growth_amount = growth_amount
 	object.base_alteration = self
+	object.motion_speed = motion_speed
 	pass

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3pspu1xo5d2y"
-path="res://.godot/imported/Water.png-c7b22ae02244b7fb830f4d12da623ae0.ctex"
+uid="uid://dg3y57g2yoaay"
+path="res://.godot/imported/Planet_Blue_2.png-bc9d35ef2a688aa43f86518a6306c733.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Files/Visuals/World/Tilesets/Water.png"
-dest_files=["res://.godot/imported/Water.png-c7b22ae02244b7fb830f4d12da623ae0.ctex"]
+source_file="res://Art Files/Visuals/Food/Planet_Blue_2.png"
+dest_files=["res://.godot/imported/Planet_Blue_2.png-bc9d35ef2a688aa43f86518a6306c733.ctex"]
 
 [params]
 

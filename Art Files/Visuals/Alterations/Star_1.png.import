@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpk6uyii2yil4"
-path="res://.godot/imported/Trees.png-96cfa493f0289095092a21b790ca7416.ctex"
+uid="uid://cl8658j20nmfq"
+path="res://.godot/imported/Star_1.png-1f2fdc32c4dd09cb5af9ccaf75865456.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Files/Visuals/World/Trees.png"
-dest_files=["res://.godot/imported/Trees.png-96cfa493f0289095092a21b790ca7416.ctex"]
+source_file="res://Art Files/Visuals/Alterations/Star_1.png"
+dest_files=["res://.godot/imported/Star_1.png-1f2fdc32c4dd09cb5af9ccaf75865456.ctex"]
 
 [params]
 

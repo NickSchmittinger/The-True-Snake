@@ -13,6 +13,7 @@ func _ready():
 	Globals.connect("begin_spawn",initial_spawn)
 	Globals.connect("end_game", end_game)
 	Globals.connect("consume", eat_food)
+	Globals.connect("growth_consumed", eat_growth_burst)
 	pass
 
 func end_game():
@@ -75,6 +76,13 @@ func eat_food(food_object):
 	Globals.add_points(food_object[0].point_value)
 	add_extension()
 	reset_food_position(food_object[0])
+	pass
+
+func eat_growth_burst(growth_object):
+	Globals.add_points(growth_object.growth_amount)
+	growth_object.base_alteration.stop_execute()
+	for i in growth_object.growth_amount:
+		call_deferred("add_extension")
 	pass
 
 func _on_respawn_timer_timeout():

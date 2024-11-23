@@ -1,24 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://deb0d567ibfmf"]
+[gd_scene load_steps=4 format=3 uid="uid://deb0d567ibfmf"]
 
 [ext_resource type="Script" path="res://Food Files/food.gd" id="1_c216v"]
-[ext_resource type="Texture2D" uid="uid://b4hfmi34fmkdv" path="res://Art Files/Visuals/Food/24/Base_Food_24.png" id="2_dgwcf"]
-[ext_resource type="SpriteFrames" uid="uid://c6ea2nqqbvyyc" path="res://Art Files/Visuals/Food/Food_Face.tres" id="2_oqk8j"]
+[ext_resource type="SpriteFrames" uid="uid://bhwbxasvnnrt7" path="res://Art Files/Visuals/Food/food.tres" id="2_gaqw6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2s2hi"]
-radius = 11.0
+radius = 19.0
 
 [node name="Food" type="CharacterBody2D" groups=["Food"]]
 collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_c216v")
 
-[node name="ColorSprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_dgwcf")
-
-[node name="FacialSprite" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("2_oqk8j")
-animation = &"Blush"
-autoplay = "Laugh"
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_gaqw6")
+animation = &"Planet Blue 1"
+autoplay = "Planet Blue 3"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2s2hi")

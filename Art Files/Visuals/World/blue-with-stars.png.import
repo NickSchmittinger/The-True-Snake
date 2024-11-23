@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ci64eomteq8b7"
-path="res://.godot/imported/Base_Food_32.png-2ef764e9f305f4e9a74beece94de7c9c.ctex"
+uid="uid://d1fxdo27j4suw"
+path="res://.godot/imported/blue-with-stars.png-0c0e4d34b41aaf137d43584e1299ede0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Files/Visuals/Food/32/Base_Food_32.png"
-dest_files=["res://.godot/imported/Base_Food_32.png-2ef764e9f305f4e9a74beece94de7c9c.ctex"]
+source_file="res://Art Files/Visuals/World/blue-with-stars.png"
+dest_files=["res://.godot/imported/blue-with-stars.png-0c0e4d34b41aaf137d43584e1299ede0.ctex"]
 
 [params]
 

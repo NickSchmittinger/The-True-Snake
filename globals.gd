@@ -5,8 +5,10 @@ signal player_speed_up
 signal launch
 signal boost
 signal consume
+signal growth_consumed
 signal extend
 signal force_update_gui
+signal points_count_timer
 signal end_game
 
 signal start_alteration_timer
@@ -35,6 +37,7 @@ var food_min_launch_dir : float = -200
 var food_max_launch_dir : float = 200
 
 var score : int = 0
+var time_score : int = 0
 var level : int = 1
 var level_up_threshold : int = 1
 
@@ -72,6 +75,7 @@ func alter_screen_size():
 
 func reset_score():
 	Globals.score = 0
+	Globals.time_score = 0
 	Globals.level = 1
 	Globals.level_up_threshold = 1
 	pass
@@ -83,10 +87,17 @@ func add_points(value):
 	emit_signal("force_update_gui")
 	pass
 
+func add_time_score(value):
+	time_score += value
+	pass
+
 func level_up():
 	level += 1
 	level_up_threshold += 2
 	if level == 2:
 		emit_signal("start_alteration_timer")
+	if level == 5:
+		emit_signal("points_count_timer")
+		pass
 	emit_signal("player_speed_up", speed_increase_percent)
 	pass

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4w8qmlgxxb3n"
-path="res://.godot/imported/Spaced-Out.jpg-7c2e0c4727337682721f1605aeebee3b.ctex"
+uid="uid://dsturankoilxj"
+path="res://.godot/imported/Planet_Blue_3.png-9286e2843aa95395f710b7a09fa6b9f0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Files/Visuals/Spaced-Out.jpg"
-dest_files=["res://.godot/imported/Spaced-Out.jpg-7c2e0c4727337682721f1605aeebee3b.ctex"]
+source_file="res://Art Files/Visuals/Food/Planet_Blue_3.png"
+dest_files=["res://.godot/imported/Planet_Blue_3.png-9286e2843aa95395f710b7a09fa6b9f0.ctex"]
 
 [params]
 

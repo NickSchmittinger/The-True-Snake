@@ -59,6 +59,8 @@ func _physics_process(delta):
 		collision = get_last_slide_collision()
 		if collision.get_collider().is_in_group("Food"):
 			Globals.emit_signal("consume", [collision.get_collider()])
+		if collision.get_collider().is_in_group("Growth"):
+			Globals.emit_signal("growth_consumed", collision.get_collider())
 		elif collision.get_collider().is_in_group("Extension"):
 			Globals.emit_signal("end_game")
 			pass

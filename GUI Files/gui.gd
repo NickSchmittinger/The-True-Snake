@@ -13,10 +13,11 @@ extends Control
 
 @export var initial_countdown_completed : bool = false
 var current_time : float = 0
-
+var points_add_time : bool = false
 
 func _ready():
 	Globals.connect("force_update_gui", update_score)
+	Globals.connect("points_count_timer", begin_adding_time)
 	Globals.connect("end_game",end_game)
 	Globals.connect("start_alteration_timer",_on_countdown_timer_timeout)
 	Globals.connect("alter_ended", clear_alteration_text)
@@ -72,9 +73,17 @@ func update_score():
 	scoreLabel.text = str(Globals.score)
 	pass
 
+func begin_adding_time():
+	points_add_time = true
+	pass
+
 func end_game():
 	scoreLabel.text = "0"
-	introOutroLabel.text = "Score: " + str(Globals.score)
+	if points_add_time:
+		Globals.add_time_score(roundi(current_time / 10))
+		introOutroLabel.text = "Score: " + str(Globals.score) + "\nTime Score: " + str(Globals.time_score) +"\nTotal: " + str(Globals.score + Globals.time_score)
+	else:
+		introOutroLabel.text = "Score: " + str(Globals.score)
 	countdownTimer.stop()
 	swap_gui_states()
 
@@ -82,7 +91,7 @@ func end_game():
 	Globals.stop_start_time()
 	
 	Globals.started = false
-	
+	points_add_time = false
 	initial_countdown_completed = false
 	
 	## Potentially remove. ##
