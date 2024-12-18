@@ -70,6 +70,10 @@ border_width_top = 10
 border_width_right = 10
 border_width_bottom = 10
 border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 shadow_color = Color(0, 0, 0, 0.360784)
 shadow_size = 1
 
@@ -80,6 +84,10 @@ border_width_top = 10
 border_width_right = 10
 border_width_bottom = 10
 border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 shadow_color = Color(0, 0.662745, 0.215686, 0.792157)
 shadow_size = 1
 

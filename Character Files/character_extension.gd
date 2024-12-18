@@ -1,11 +1,16 @@
 extends CharacterBody2D
 
-
+#Variables for parent and following necessities
 @onready var parent : CharacterBody2D
 @export var speed = 180
 @export var speed_offset = 25
 @export var direction : Vector2
 
+#Creates the extension: sets the parent to follow and the offset its followed by
+#Checks the velocity of the parent and alters the position it spawns at based on the direction the parent is moving
+#If the parent is not moving, the new extension will spawn to the parents left
+#If the parent is moving, the new extension will spawn behind it
+#The exact offset it spawns at will be the size of the parent combined with the extensions fixed offset value
 func setup(parent_node):
 	parent = parent_node
 	var offset_vector : Vector2
@@ -21,6 +26,8 @@ func setup(parent_node):
 	position = parent.position + -offset_vector
 	pass
 
+#Controls the movement of the extension to follow its parent by a set distance
+#If the extension has no parent, it will delete itself
 func _physics_process(_delta):
 	if parent:
 		direction = parent.position - position

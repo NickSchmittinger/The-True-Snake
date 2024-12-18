@@ -1,21 +1,28 @@
 extends CharacterBody2D
 
+#Timer for determing how long each buff affects player
 #Potential Move
 @export var buffTimer : Timer
 
+#Variables for the player speed and rotational speed
 #Most likely Staying
 @export var base_speed = 200
 @export var speed = 200
 @export var angular_speed = 5
 
+#Variables to determine the boost and direction for the player
 var boost : Vector2 = Vector2.ONE
 var boosting : bool = false
 
+#Variables for the player body
 @export var collider : CollisionShape2D
 var collision : KinematicCollision2D
 
+#List of extensions connected to the player
 @export var extensions = []
 
+#Connects global signals to speed increase, boost, and extension creation functions
+#Ensures the collider and buff timers exist
 func _ready():
 	Globals.connect("player_speed_up", nat_speed_up)
 	Globals.connect("extend",add_extension)
@@ -26,6 +33,9 @@ func _ready():
 		buffTimer = $BuffTimer
 	pass
 
+#Adds a reference to the extension object to the extensions list
+#Names the extension object to extension object + its place in the list
+#Calls the extension set up function passing it either the character or the previous extension in the list of extensions
 func add_extension(extension_object):
 	extensions.append(extension_object)
 	extension_object.name = "extension_object" + str(extensions.size())
@@ -37,10 +47,14 @@ func add_extension(extension_object):
 		pass
 	pass
 
+#Increases the speed of the player by adding a percentage of the original speed to the current speed
 func nat_speed_up(percent):
 	speed += base_speed * percent
 	pass
 
+#Applies a boost in the direction of boost value
+#Tells the player that it is boosting and denies the player the ability to move while boosting
+#Times the boost to end after a certain amount of time
 ## buffTimer (add as param? move buffTimer to globals / other?)##
 func apply_boost(boost_value : Vector2):
 	boost = boost_value
@@ -48,6 +62,12 @@ func apply_boost(boost_value : Vector2):
 	buffTimer.start(.3)
 	pass
 
+#Manages the player movement based on rotational directions pressed
+#Player will always be moving forward
+#Disables the ability for player to control movement while boosting
+#Constantly checks if the player collides with something
+#Tells the game what the player collided with food and growth will add extensions and points while colliding with an extension will end the game
+#Ensures the player is still on the screen to keep playing and ends the game on touching the walls of the screen
 func _physics_process(delta):
 	if boosting:
 		velocity = boost
@@ -74,7 +94,7 @@ func _physics_process(delta):
 		pass
 	pass
 
-
+#Disables the boost
 func _on_buff_timer_timeout():
 	boosting = false
 	boost = Vector2.ONE
